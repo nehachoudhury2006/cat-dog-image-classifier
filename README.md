@@ -1,74 +1,65 @@
-# Image Classifier Project
+# Cat vs Dog Image Classifier
 
-Goal: Build a CNN image classification model that predicts whether an uploaded image is a cat or dog first, then later expand to more animals.
+Live App: https://cat-dog-image-classifier-gyfvgiwhsnsc8p88fwgzfu.streamlit.app/
 
-## Phase 1: Training in Jupyter or Google Colab
+## Objective
 
-Use this phase to:
+This project is a deep learning image classification app that predicts whether an uploaded image is a cat or a dog.
 
-- Load image dataset
-- Resize and normalize images
-- Train a CNN or transfer learning model
-- Check accuracy
-- Save the trained model in `models/`
+## Technologies Used
 
-Recommended first model:
-
+- Python
 - TensorFlow/Keras
-- MobileNetV2 transfer learning
-- Classes: cat, dog
+- Streamlit
+- NumPy
+- Pillow
 
-## Phase 2: App in VS Code
+## How It Works
 
-Use this phase to:
+1. The user uploads a cat or dog image in the Streamlit app.
+2. The app resizes the image to `128x128`.
+3. The image is normalized so pixel values are between `0` and `1`.
+4. The trained CNN model predicts the class.
+5. The app displays the prediction and confidence score.
 
-- Load the saved model
-- Build a Streamlit upload app
-- Accept an image from the user
-- Show prediction and confidence
+## Model
 
-## Phase 3: Cloud Deployment
-
-Deploy only:
-
-- App code
-- Saved model file
-- Requirements file
-
-Recommended cloud option:
-
-- Hugging Face Spaces with Streamlit
-
-## Folder Structure
+The project uses a CNN model saved in Keras format:
 
 ```text
-image_classifier/
-  dataset/
-    train/
-      cat/
-      dog/
-    test/
-      cat/
-      dog/
-  notebooks/
-  models/
-  app/
+models/cat_dog_custom_cnn.keras
 ```
 
-## First Task
+This is a supervised deep learning model for binary image classification.
 
-Add cat images into:
+## Run Locally
+
+```bash
+cd /Users/nehachoudhury/image_classifier
+source .venv/bin/activate
+streamlit run app.py
+```
+
+Then open:
 
 ```text
-dataset/train/cat/
-dataset/test/cat/
+http://localhost:8501
 ```
 
-Add dog images into:
+## Cloud Deployment
 
-```text
-dataset/train/dog/
-dataset/test/dog/
-```
+The app is deployed on Streamlit Cloud. Streamlit Cloud reads:
 
-For the first version, use around 100-200 images per class. Later, increase it for better accuracy.
+- `runtime.txt` for the Python version
+- `requirements.txt` for required libraries
+- `app.py` as the main app file
+
+`runtime.txt` uses Python 3.11 because TensorFlow works reliably with that version.
+
+## Future Improvements
+
+- Train the model with a larger dataset
+- Add more animal classes
+- Improve model accuracy
+- Add prediction history
+- Add a more detailed result explanation
