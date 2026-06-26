@@ -39,7 +39,7 @@ uploaded_file = st.file_uploader(
 if uploaded_file is None:
     st.info("Please upload a JPG, JPEG, or PNG image to start prediction.")
 else:
-    st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
+    st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
 
     try:
         with st.spinner("Analyzing image..."):
