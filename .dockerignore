@@ -1,0 +1,7 @@
+.venv
+dataset
+cat_dog_dataset.zip
+.DS_Store
+__pycache__
+.git
+.streamlit
